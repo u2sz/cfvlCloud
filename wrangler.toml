@@ -1,4 +1,4 @@
-name = "zerostore"
+name = "siren"
 main = "build/worker/shim.mjs"
 compatibility_date = "2024-05-23"
 minify = true
@@ -29,7 +29,7 @@ command = "cargo install -q worker-build && worker-build --release"
 build = { command = "cargo install -q worker-build && worker-build --dev" }
 
 [vars]
-UUID = "bbbbbbbb-zero-4ddd-eeee-ffffffffffff"
+UUID = "bbbbbbbb-zero-store-eeee-ffffffffffff"
 MAIN_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/index.html"
 SUB_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/sub.html"
 LINK_PAGE_URL = "https://raw.githubusercontent.com/dkt1304/Cloud/main/web/link.html"
