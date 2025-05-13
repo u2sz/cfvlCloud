@@ -29,7 +29,7 @@ command = "cargo install -q worker-build && worker-build --release"
 build = { command = "cargo install -q worker-build && worker-build --dev" }
 
 [vars]
-UUID = "bbbbbbbb-zero-store-eeee-ffffffffffff"
+UUID = "214e9352-22dd-4add-8464-02473d8f7e7f"
 MAIN_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/index.html"
 SUB_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/sub.html"
 LINK_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/link.html"
