@@ -13,7 +13,7 @@ const defaultProxyUrl = "https://raw.githubusercontent.com/AFRcloud/ProxyList/re
 
 const serverDomains = ["zerostore.tech"]
 let selectedServerDomain = serverDomains[0] // Default to first domain
-const defaultUUID = "bbbbbbbb-zero-store-eeee-ffffffffffff"
+const defaultUUID = "214e9352-22dd-4add-8464-02473d8f7e7f"
 const itemsPerPage = 10
 let currentPage = 1
 
