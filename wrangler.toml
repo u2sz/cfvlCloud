@@ -7,20 +7,20 @@ workers_dev = true
 
 routes = [
 
-  { pattern = "zerostore.tech", custom_domain = true },
-  { pattern = "ava.game.naver.com.zerostore.tech", custom_domain = true },
-  { pattern = "quiz.int.vidio.com.zerostore.tech", custom_domain = true },
-  { pattern = "graph.instagram.com.zerostore.tech", custom_domain = true },
-  { pattern = "help.viu.com.zerostore.tech", custom_domain = true },
-  { pattern = "support.zoom.us.zerostore.tech", custom_domain = true },
-  { pattern = "cache.netflix.com.zerostore.tech", custom_domain = true },
-  { pattern = "graph.facebook.com.zerostore.tech", custom_domain = true },
-  { pattern = "dogseechew.com.zerostore.tech", custom_domain = true },
+  { pattern = "zerostore.org", custom_domain = true },
+  { pattern = "ava.game.naver.com.zerostore.org", custom_domain = true },
+  { pattern = "quiz.int.vidio.com.zerostore.org", custom_domain = true },
+  { pattern = "graph.instagram.com.zerostore.org", custom_domain = true },
+  { pattern = "help.viu.com.zerostore.org", custom_domain = true },
+  { pattern = "support.zoom.us.zerostore.org", custom_domain = true },
+  { pattern = "cache.netflix.com.zerostore.org", custom_domain = true },
+  { pattern = "graph.facebook.com.zerostore.org", custom_domain = true },
+  { pattern = "dogseechew.com.zerostore.org", custom_domain = true },
 ]
 
 [[kv_namespaces]]
 binding = "SIREN"
-id = "f448e68142cb44b6b14ff70550468d90"
+id = "67614f74d7ed497fb3243c623b1fba08"
 
 [build]
 command = "cargo install -q worker-build && worker-build --release"
