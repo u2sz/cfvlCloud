@@ -7,20 +7,20 @@ workers_dev = true
 
 routes = [
 
-  { pattern = "zerostore.org", custom_domain = true },
-  { pattern = "ava.game.naver.com.zerostore.org", custom_domain = true },
-  { pattern = "quiz.int.vidio.com.zerostore.org", custom_domain = true },
-  { pattern = "graph.instagram.com.zerostore.org", custom_domain = true },
-  { pattern = "help.viu.com.zerostore.org", custom_domain = true },
-  { pattern = "support.zoom.us.zerostore.org", custom_domain = true },
-  { pattern = "cache.netflix.com.zerostore.org", custom_domain = true },
-  { pattern = "graph.facebook.com.zerostore.org", custom_domain = true },
-  { pattern = "dogseechew.com.zerostore.org", custom_domain = true },
+  { pattern = "zerostore.ggff.net", custom_domain = true },
+  { pattern = "ava.game.naver.com.zerostore.ggff.net", custom_domain = true },
+  { pattern = "quiz.int.vidio.com.zerostore.ggff.net", custom_domain = true },
+  { pattern = "graph.instagram.com.zerostore.ggff.net", custom_domain = true },
+  { pattern = "help.viu.com.zerostore.ggff.net", custom_domain = true },
+  { pattern = "support.zoom.us.zerostore.ggff.net", custom_domain = true },
+  { pattern = "cache.netflix.com.zerostore.ggff.net", custom_domain = true },
+  { pattern = "graph.facebook.com.zerostore.ggff.net", custom_domain = true },
+  { pattern = "dogseechew.com.zerostore.ggff.net", custom_domain = true },
 ]
 
 [[kv_namespaces]]
 binding = "SIREN"
-id = "67614f74d7ed497fb3243c623b1fba08"
+id = "a506bfb8ec674aed8b8ef0a3fccb6954"
 
 [build]
 command = "cargo install -q worker-build && worker-build --release"
