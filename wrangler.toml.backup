@@ -13,7 +13,7 @@ routes = [
   { pattern = "graph.instagram.com.zerostore.tech", custom_domain = true },
   { pattern = "help.viu.com.zerostore.tech", custom_domain = true },
   { pattern = "support.zoom.us.zerostore.tech", custom_domain = true },
-  { pattern = "cache.netflix.com.zerostore.tecg", custom_domain = true },
+  { pattern = "cache.netflix.com.zerostore.tech", custom_domain = true },
   { pattern = "graph.facebook.com.zerostore.tech", custom_domain = true },
   { pattern = "dogseechew.com.zerostore.tech", custom_domain = true },
 ]
@@ -34,4 +34,5 @@ MAIN_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/index.
 SUB_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/sub.html"
 LINK_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/link.html"
 CONVERTER_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/converter.html"
+
 
