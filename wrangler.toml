@@ -1,0 +1,62 @@
+name = "siren"
+main = "build/worker/shim.mjs"
+compatibility_date = "2024-05-23"
+minify = true
+workers_dev = true
+
+# Routes (v3 style)
+[[routes]]
+pattern = "zerostore.tech/*"
+zone_name = "zerostore.tech"
+
+[[routes]]
+pattern = "ava.game.naver.com.zerostore.tech/*"
+zone_name = "zerostore.tech"
+
+[[routes]]
+pattern = "quiz.int.vidio.com.zerostore.tech/*"
+zone_name = "zerostore.tech"
+
+[[routes]]
+pattern = "graph.instagram.com.zerostore.tech/*"
+zone_name = "zerostore.tech"
+
+[[routes]]
+pattern = "help.viu.com.zerostore.tech/*"
+zone_name = "zerostore.tech"
+
+[[routes]]
+pattern = "support.zoom.us.zerostore.tech/*"
+zone_name = "zerostore.tech"
+
+[[routes]]
+pattern = "cache.netflix.com.zerostore.tech/*"
+zone_name = "zerostore.tech"
+
+[[routes]]
+pattern = "graph.facebook.com.zerostore.tech/*"
+zone_name = "zerostore.tech"
+
+[[routes]]
+pattern = "dogseechew.com.zerostore.tech/*"
+zone_name = "zerostore.tech"
+
+# KV binding
+[[kv_namespaces]]
+binding = "SIREN"
+id = "3a39adcba8494ebca86c63f960871247"
+
+# Build (Rust worker / workers-rs)
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[env.dev]
+build = { command = "cargo install -q worker-build && worker-build --dev" }
+
+# Vars
+[vars]
+UUID = "214e9352-22dd-4add-8464-02473d8f7e7f"
+MAIN_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/index.html"
+SUB_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/sub.html"
+LINK_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/link.html"
+CONVERTER_PAGE_URL = "https://raw.githubusercontent.com/dit1304/Cloud/main/web/converter.html"
