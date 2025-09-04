@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Rust toolchain untuk build via cargo
+      # Toolchain Rust (wajib karena build via cargo)
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
@@ -23,7 +23,11 @@ jobs:
       - name: Install Wrangler
         run: npm install -g wrangler@4
 
-      # Deploy (prod/top-level env). Tambah WASMOPT_ARGS di env.
+      # (Opsional) Pastikan binaryen terbaru tersedia
+      - name: Install binaryen (optional)
+        run: sudo apt-get update && sudo apt-get install -y binaryen
+
+      # Deploy (prod/top-level env) + enable bulk-memory untuk wasm-opt
       - name: Deploy to Cloudflare Workers (prod)
         run: npx wrangler deploy --env=""
         env:
