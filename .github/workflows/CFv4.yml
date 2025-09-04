@@ -1,0 +1,28 @@
+name: cf workers
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE.md'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: cf
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install Wrangler v4
+      - name: Install Wrangler
+        run: npm install -g wrangler@4
+
+      # Deploy dengan Wrangler v4
+      - name: Deploy to Cloudflare Workers
+        run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
