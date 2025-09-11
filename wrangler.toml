@@ -6,40 +6,9 @@ workers_dev = true
 
 # Routes (v3 style)
 [[routes]]
-pattern = "zerostore.tech/*"
-zone_name = "zerostore.tech"
+pattern = "siren.543083.xyz/*"
+zone_name = "543083.xyz"
 
-[[routes]]
-pattern = "ava.game.naver.com.zerostore.tech/*"
-zone_name = "zerostore.tech"
-
-[[routes]]
-pattern = "quiz.int.vidio.com.zerostore.tech/*"
-zone_name = "zerostore.tech"
-
-[[routes]]
-pattern = "graph.instagram.com.zerostore.tech/*"
-zone_name = "zerostore.tech"
-
-[[routes]]
-pattern = "help.viu.com.zerostore.tech/*"
-zone_name = "zerostore.tech"
-
-[[routes]]
-pattern = "support.zoom.us.zerostore.tech/*"
-zone_name = "zerostore.tech"
-
-[[routes]]
-pattern = "cache.netflix.com.zerostore.tech/*"
-zone_name = "zerostore.tech"
-
-[[routes]]
-pattern = "graph.facebook.com.zerostore.tech/*"
-zone_name = "zerostore.tech"
-
-[[routes]]
-pattern = "dogseechew.com.zerostore.tech/*"
-zone_name = "zerostore.tech"
 
 # KV binding
 [[kv_namespaces]]
