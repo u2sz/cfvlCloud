@@ -44,7 +44,7 @@ zone_name = "zerostore.tech"
 # KV binding
 [[kv_namespaces]]
 binding = "SIREN"
-id = "3a39adcba8494ebca86c63f960871247"
+id = "d060c65ff1734a2eb44a03571320ece5"
 
 # Build (Rust worker / workers-rs)
 [build]
