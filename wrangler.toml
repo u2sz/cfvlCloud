@@ -50,6 +50,10 @@ id = "d060c65ff1734a2eb44a03571320ece5"
 [build]
 command = "cargo install -q worker-build && worker-build --release"
 
+# 配置 wasm-opt 参数
+[build.wasm-opt]
+args = ["--enable-bulk-memory"]
+
 [env.dev]
 build = { command = "cargo install -q worker-build && worker-build --dev" }
 
