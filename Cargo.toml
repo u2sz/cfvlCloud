@@ -31,3 +31,9 @@ opt-level = "s"
 lto = true
 strip = true
 codegen-units = 1
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-O", "--enable-bulk-memory"]
+
+[package.metadata.wasm-pack.profile.dev]
+wasm-opt = false
