@@ -48,11 +48,7 @@ id = "d060c65ff1734a2eb44a03571320ece5"
 
 # Build (Rust worker / workers-rs)
 [build]
-command = "cargo install -q worker-build && worker-build --release"
-
-# 配置 wasm-opt 参数
-[build.wasm-opt]
-args = ["--enable-bulk-memory"]
+command = "cargo install -q worker-build && RUSTFLAGS='-C target-feature=+bulk-memory' worker-build --release"
 
 [env.dev]
 build = { command = "cargo install -q worker-build && worker-build --dev" }
