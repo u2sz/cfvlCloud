@@ -1,5 +1,4 @@
 name: cf workers
-
 on:
   workflow_dispatch:
   push:
@@ -14,22 +13,22 @@ jobs:
     environment: cf
     steps:
       - uses: actions/checkout@v4
-
-      # Toolchain Rust (wajib karena build via cargo)
+      
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
-
-      # Wrangler v4
+        
       - name: Install Wrangler
         run: npm install -g wrangler@4
-
-      # (Opsional) Pastikan binaryen terbaru tersedia
-      - name: Install binaryen (optional)
-        run: sudo apt-get update && sudo apt-get install -y binaryen
-
-      # Deploy (prod/top-level env) + enable bulk-memory untuk wasm-opt
-      - name: Deploy to Cloudflare Workers (prod)
-        run: npx wrangler deploy --no-bundle --env=""
+        
+      # 预先构建，设置正确的环境变量
+      - name: Build Worker with bulk memory support
+        run: |
+          cargo install -q worker-build
+          worker-build --release
+        env:
+          RUSTFLAGS: "-C target-feature=+bulk-memory"
+          
+      - name: Deploy to Cloudflare Workers
+        run: npx wrangler deploy --no-bundle
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          WASM_OPT_ARGS: --enable-bulk-memory
