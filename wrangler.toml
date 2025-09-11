@@ -9,6 +9,14 @@ workers_dev = true
 pattern = "siren.543083.xyz/*"
 zone_name = "543083.xyz"
 
+[[routes]]
+pattern = "nod.yyf.pp.ua/*"
+zone_name = "yyf.pp.ua"
+
+[[routes]]
+pattern = "nod.tos.pp.ua/*"
+zone_name = "tos.pp.ua"
+
 
 # KV binding
 [[kv_namespaces]]
