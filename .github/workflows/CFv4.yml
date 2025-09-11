@@ -15,21 +15,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Toolchain Rust (wajib karena build via cargo)
+      # 安装 Rust 工具链
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
-      # Wrangler v4
+      # 安装 Wrangler v4
       - name: Install Wrangler
         run: npm install -g wrangler@4
 
-      # (Opsional) Pastikan binaryen terbaru tersedia
-      - name: Install binaryen (optional)
-        run: sudo apt-get update && sudo apt-get install -y binaryen
+      # 安装最新 Binaryen（包含新版 wasm-opt）
+      - name: Install binaryen (latest)
+        run: |
+          wget https://github.com/WebAssembly/binaryen/releases/download/version_116/binaryen-version_116-x86_64-linux.tar.gz
+          tar -xzf binaryen-version_116-x86_64-linux.tar.gz
+          sudo mv binaryen-version_116 /usr/local/binaryen
+          echo "/usr/local/binaryen/bin" >> $GITHUB_PATH
 
-      # Deploy (prod/top-level env) + enable bulk-memory untuk wasm-opt
+      # 部署到 Cloudflare Workers
       - name: Deploy to Cloudflare Workers (prod)
         run: npx wrangler deploy --env=""
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          #WASMOPT_ARGS: --enable-bulk-memory
+          WASMOPT_ARGS: --enable-bulk-memory
