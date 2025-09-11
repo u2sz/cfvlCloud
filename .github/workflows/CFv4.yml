@@ -32,4 +32,4 @@ jobs:
         run: npx wrangler deploy --env=""
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          WASMOPT_ARGS: --enable-bulk-memory
+          #WASMOPT_ARGS: --enable-bulk-memory
