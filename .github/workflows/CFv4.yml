@@ -23,7 +23,6 @@ jobs:
       - name: Install Wrangler
         run: npm install -g wrangler@4
 
-      # 安装最新 Binaryen（包含新版 wasm-opt）
       - name: Install binaryen (latest)
         run: |
           wget https://github.com/WebAssembly/binaryen/releases/download/version_116/binaryen-version_116-x86_64-linux.tar.gz
@@ -31,9 +30,52 @@ jobs:
           sudo mv binaryen-version_116 /usr/local/binaryen
           echo "/usr/local/binaryen/bin" >> $GITHUB_PATH
 
-      # 部署到 Cloudflare Workers
+      - name: Debug: which wasm-opt / caches
+        run: |
+          which -a wasm-opt || true
+          wasm-opt --version || true
+          ls -la /usr/local/binaryen/bin || true
+          ls -la $HOME/.cache/.wasm-pack || true
+          ls -la $HOME/.cache/wasm-pack || true
+
+      - name: Remove wasm-pack cached wasm-opt if any
+        run: |
+          rm -rf $HOME/.cache/.wasm-pack || true
+          rm -rf $HOME/.cache/wasm-pack || true
+          rm -rf $HOME/.cache/binary-install || true
+
+      - name: Build (wrangler build) with forced wasm-opt
+        env:
+          WASM_OPT: /usr/local/binaryen/bin/wasm-opt
+          WASMOPT_ARGS: --enable-bulk-memory
+          PATH: /usr/local/binaryen/bin:$PATH
+        run: |
+          echo "which wasm-opt:"
+          which wasm-opt || true
+          wasm-opt --version || true
+          npx wrangler build --env="" || npx wrangler build || true
+
+      - name: Inspect generated wasm and try manual wasm-opt
+        env:
+          PATH: /usr/local/binaryen/bin:$PATH
+        run: |
+          f=$(find . -type f -name "*_bg.wasm" -o -name "*.wasm" | head -n1 || true)
+          if [ -z "$f" ]; then
+            echo "No wasm found; listing tree:"
+            find . -maxdepth 4 -type f -print | sed -n '1,200p'
+            exit 0
+          fi
+          echo "Found wasm: $f"
+          wasm-objdump -x "$f" | sed -n '1,200p' || true
+          /usr/local/binaryen/bin/wasm-opt --enable-bulk-memory -Oz "$f" -o "${f}.opt.wasm" || echo "wasm-opt failed"
+          if [ -f "${f}.opt.wasm" ]; then
+            echo "Optimized produced: ${f}.opt.wasm"
+          fi
+
       - name: Deploy to Cloudflare Workers (prod)
-        run: npx wrangler deploy --env=""
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          WASM_OPT: /usr/local/binaryen/bin/wasm-opt
           WASMOPT_ARGS: --enable-bulk-memory
+          PATH: /usr/local/binaryen/bin:$PATH
+        run: npx wrangler deploy --env=""
