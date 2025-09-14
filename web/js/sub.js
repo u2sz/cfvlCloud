@@ -6,7 +6,7 @@
 const CONFIG = {
   proxyListUrl: "https://raw.githubusercontent.com/AFRcloud/ProxyList/refs/heads/main/ProxyList.txt",
   apiCheckUrl: "https://afrcloud.dpdns.org/",
-  mainDomains: ["nod.yyf.pp.ua","nod.tos.pp.ua","nod.canghaixiao.pp.ua"],
+  mainDomains: ["mm.nz8.qzz.io","mm0.nz8.qzz.io"],
   defaultUuid: "bbbbbbbb-zero-store-eeee-ffffffffffff",
   maxProxies: 50,
   defaultProxyCount: 5,
