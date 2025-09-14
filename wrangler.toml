@@ -6,7 +6,7 @@ workers_dev = true
 
 # Routes (v3 style)
 [[routes]]
-pattern = "mm.nz8.qzz.io/*"
+pattern = "vl.nz8.qzz.io/*"
 zone_name = "nz8.qzz.io"
 
 
